@@ -43,7 +43,13 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-pagination'
   },
   mousewheel: true,
-  keyboard: true
+  keyboard: true,
+  breakpoints: {
+    767: {
+      slidesPerView: 2,
+      setWrapperSize: true
+    }
+  }
 })
 
 // SCROLLREVEAL: Mostrar elementos quando der scroll na página //
@@ -75,4 +81,15 @@ window.addEventListener('scroll', function () {
   } else {
     backToTopButton.classList.remove('show')
   }
+})
+
+// MENU ATIVO CONFORME A SEÇÃO VISÍVEL NA PÁGINA //
+const sections = document.querySelectorAll('main section[id]')
+function activateMenuAtCurrentSection() {}
+
+/* when scroll */
+window.addEventListener('scroll', function () {
+  changeHeaderWhenScroll()
+  backToTopButton()
+  activateMenuAtCurrentSection()
 })
